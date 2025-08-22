@@ -1316,7 +1316,7 @@ end
 Tab:AddButton({
  Name = "Phenomar",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Phenomar"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Phenomar.txt"))()
    end    
 })
 
@@ -1413,35 +1413,35 @@ end)
 Tab:AddButton({
  Name = "Character: Chronos",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Chronos"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Character_Chronos.txt"))()
    end    
 })
 
 Tab:AddButton({
  Name = "Character: Tenebris (Beta Version)",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Tenebris"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Character_Tenebris.txt"))()
    end    
 })
 
 Tab:AddButton({
  Name = "Character: Cain",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Cain"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Character_Cain.txt"))()
    end    
 })
 
 Tab:AddButton({
  Name = "Character: Lumen (Alpha Version)",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Lumen"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Character_Lumen.txt"))()
    end    
 })
 
 Tab:AddButton({
  Name = "Character: Astaroth",
  Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Astaroth"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/JustANobodybro/Adsker_KJB2_Unedit/refs/heads/main/Character_Astaroth.txt"))()
    end    
 })
 
