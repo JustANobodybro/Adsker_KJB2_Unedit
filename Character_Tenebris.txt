@@ -1,0 +1,1043 @@
+local args = {
+    [1] = "LoadChar"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "ChangeValue",
+    [2] = game:GetService("Players").LocalPlayer.PlayerGui.NoResetOnSpawn:WaitForChild("SelctionChar"),
+    [3] = "Gojo"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+ task.wait(0.5)
+ repeat wait() until game.Players.LocalPlayer.Character
+ task.wait(0.5)
+ 
+ game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+ 
+ for _, obj in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+  if obj:IsA("BasePart") then
+obj.Color = Color3.new(0.4, 0.4, 0.4)
+  elseif obj:IsA("Shirt") or obj:IsA("Pants") or obj:IsA("Accessory") then
+obj:Destroy()
+   elseif obj:IsA("Texture") or obj:IsA("Decal") then
+obj:Destroy()
+  end
+end
+
+local cloak = Instance.new("MeshPart", workspace)
+cloak.MeshId = "rbxassetid://18760389159"
+cloak.Color = Color3.new(0, 0, 0)
+cloak.CanCollide = false
+cloak.Size = Vector3.new(1, 1, 1)
+cloak.Material = "SmoothPlastic"
+
+local CW = Instance.new("Weld", cloak)
+CW.C0 = CFrame.new(0, 2.2, -0.5)
+CW.Part0 = cloak
+CW.Part1 = game.Players.LocalPlayer.Character.Head
+
+local hair = Instance.new("MeshPart", workspace)
+hair.MeshId = "rbxassetid://83293901"
+hair.TextureID = "rbxassetid://6858317867"
+hair.Size = Vector3.new(1, 1, 1)
+hair.CanCollide = false
+
+local HW = Instance.new("Weld", hair)
+HW.C0 = CFrame.new(0, -0.25, 0.2)
+HW.Part0 = hair
+HW.Part1 = game.Players.LocalPlayer.Character.Head
+
+local face = Instance.new("MeshPart", workspace)
+face.MeshId = "rbxassetid://17826310061"
+face.TextureID = "rbxassetid://17826399930"
+face.CanCollide = false
+face.Size = Vector3.new(2, 2, 2)
+
+local FW = Instance.new("Weld", face)
+FW.C0 = CFrame.new(0, -0.1, -0.6) * CFrame.Angles(0, math.rad(180), 0)
+FW.Part0 = face
+FW.Part1 = game.Players.LocalPlayer.Character.Head
+
+shirt = Instance.new("Shirt", game.Players.LocalPlayer.Character)
+pants = Instance.new("Pants", game.Players.LocalPlayer.Character)
+shirt.ShirtTemplate = "rbxassetid://676428254"
+pants.PantsTemplate = "rbxassetid://676428351"
+ 
+ local tool = Instance.new("Tool")
+tool.Name = "Touch Trap"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 2 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18561550249"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(0.4)
+local box = Instance.new("Part", workspace)
+box.Size = Vector3.new(2, 2, 2)
+box.Transparency = 1
+box.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -3.5)
+game.Debris:AddItem(box, 60)
+
+local sel = Instance.new("SelectionBox", box)
+sel.Adornee = box
+
+loop = Instance.new("Sound", box)
+loop.SoundId = "rbxassetid://2585316537"
+loop.Volume = 2
+loop.PlaybackSpeed = 1
+loop.Looped = false
+loop:Play()
+
+box.Touched:Connect(function(hit)
+ local humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+  if humanoid and humanoid.Parent ~= game.Players.LocalPlayer.Character then
+box.CanTouch = false
+partTweenn2 = game:GetService("TweenService"):Create(sel, TweenInfo.new(1, Enum.EasingStyle.Linear), {
+        Color3 = Color3.new(1, 0, 0)
+    })
+    partTweenn2:Play()
+    
+sound = Instance.new("Sound", box)
+sound.SoundId = "rbxassetid://181004943"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+task.wait(1)
+sel:Destroy()
+loop:Stop()
+box.CanCollide = false
+box.Anchored = true
+sound = Instance.new("Sound", box)
+sound.SoundId = "rbxassetid://314970761"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+for i = 1, 6 do
+ local hu = Instance.new("Part", workspace)
+ hu.Position = box.Position + Vector3.new(math.random(-10, 10), 2, math.random(-10, 10))
+ hu.Transparency = 1
+ hu.Velocity = (box.Position - hu.Position).Unit * -275
+ hu.Size = Vector3.new(0.6, 0.6, 0.6)
+ 
+ local dey = Instance.new("SelectionBox", hu)
+ dey.Adornee = hu
+ game.Debris:AddItem(hu, 12)
+end
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - box.Position).magnitude
+        if distance <= 30 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoi in pairs(foundHumanoids) do
+  for i = 1, 2 do
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(humanoi.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+  end
+end)
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Explosive Vector"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 3 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18285571639"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.3)
+local box = Instance.new("Part", workspace)
+box.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0.3, -3)
+box.CanCollide = false
+box.Transparency = 1
+box.Size = Vector3.new(2.5, 2.5, 2.5)
+game.Debris:AddItem(box, 5)
+
+local sel = Instance.new("SelectionBox", box)
+sel.Adornee = box
+
+local bodyVel = Instance.new("BodyVelocity", box)
+bodyVel.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+bodyVel.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 22.5
+ task.wait(1.5)
+bodyVel:Destroy()
+sel:Destroy()
+box.Anchored = true
+
+local square = Instance.new("Part", workspace)
+square.CanCollide = false
+square.Position = box.Position
+square.Anchored = true
+square.Color = Color3.new(0, 0, 0.8)
+square.Size = Vector3.zero
+square.Material = "SmoothPlastic"
+game.Debris:AddItem(square, 2)
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - box.Position).magnitude
+        if distance <= 24 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+  for i = 1, 5 do
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end 
+
+local partTweenn2 = game:GetService("TweenService"):Create(square, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {
+        Transparency = 1,
+        Color = Color3.new(0, 0, 0),
+        Size = Vector3.new(40, 40, 40)
+    })
+    partTweenn2:Play()
+
+ for i = 1, 5 do
+local shard = Instance.new("Part", workspace)
+shard.Transparency = 1
+shard.Size = Vector3.new(1, 1, 1)
+shard.Position = box.Position + Vector3.new(math.random(-10, 10), 0, math.random(-10, 10))
+shard.Velocity = (box.Position - shard.Position).Unit * 200
+
+local sel = Instance.new("SelectionBox", shard)
+sel.Adornee = shard
+game.Debris:AddItem(shard, 8)
+ end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Piercing Dash"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 4 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://125142699630236"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(0.2)
+local args = {
+    [1] = "TOPIMPORTANT_VFXEMITEER",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("Sukuna"):WaitForChild("RagingPummel"):WaitForChild("ThrowRaging"),
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://6128977275"
+sound.Volume = 2.5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local foundHumanoids = {}
+local radius = 10
+local player = game.Players.LocalPlayer
+local origin = player.Character.HumanoidRootPart.Position
+local direction = player.Character.HumanoidRootPart.CFrame.LookVector
+
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= player.Character then
+        local humanoidPosition = v.RootPart.Position
+        local toHumanoid = humanoidPosition - origin
+        local distance = toHumanoid.magnitude
+        local angle = math.acos(toHumanoid.Unit:Dot(direction))
+
+        if distance <= 35 and angle < math.rad(30) then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+sound = Instance.new("Sound", humanoid.RootPart)
+sound.SoundId = "rbxassetid://6875009415"
+sound.Volume = 2
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+ for i = 1, 4 do
+  local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+ game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+   if humanoid.Health <= 0 then
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+end
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -20)
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Teleport Front"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 3 then
+                lastPressTime = currentTime 
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame *= CFrame.new(0, 0, -22)
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://289556450"
+sound.Volume = 2.5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local args = {
+    [1] = "TOPIMPORTANT_VFXEMITEER",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("Sukuna"):WaitForChild("CleaveCharge"):WaitForChild("DashSmoke"),
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local function tools()
+local tool = Instance.new("Tool")
+tool.Name = "Flickering"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 6 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://132709807557477"
+local d = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+d:Play()
+d:AdjustSpeed(1)
+  task.wait(0.2)
+partTweenn2 = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {
+        CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -40)
+    })
+    partTweenn2:Play()
+    
+    local foundHumanoids = {}
+local radius = 6
+local player = game.Players.LocalPlayer
+local origin = player.Character.HumanoidRootPart.Position
+local direction = player.Character.HumanoidRootPart.CFrame.LookVector
+
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= player.Character then
+        local humanoidPosition = v.RootPart.Position
+        local toHumanoid = humanoidPosition - origin
+        local distance = toHumanoid.magnitude
+        local angle = math.acos(toHumanoid.Unit:Dot(direction))
+
+        if distance <= 30 and angle < math.rad(30) then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+ for i = 1, 2 do
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ end
+end
+
+spawn(function()
+   for i = 1, 4 do
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://289556450"
+sound.Volume = 2.5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+ wait()
+   end
+end)
+task.wait(0.65)
+d:Stop()
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://121542660442349"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.1)
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 30 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+  for i = 1, 4 do
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+
+local slam = Instance.new("MeshPart", workspace)
+slam.MeshId = "rbxassetid://20329976"
+slam.Size = Vector3.zero
+slam.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position 
+slam.Anchored = true
+slam.CanCollide = false
+game.Debris:AddItem(slam, 3)
+
+local partTweenn2 = game:GetService("TweenService"):Create(slam, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {
+        Transparency = 1,
+        Color = Color3.new(0, 0, 0),
+        Size = Vector3.new(40, 15, 40)
+    })
+    partTweenn2:Play()
+    
+spawn(function()
+  for i = 1, 5 do
+    coroutine.wrap(function()
+ local rock = Instance.new("Part", workspace)
+ rock.Size = Vector3.new(2, 2, 2)
+ rock.Position = slam.Position + Vector3.new(math.random(-5, 5), 4, math.random(-5, 5))
+ rock.Material = game.Players.LocalPlayer.Character.Humanoid.FloorMaterial
+ rock.Velocity = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - rock.Position).Unit * -100
+ rock.Color = Color3.new(0.5, 0.5, 0.5)
+ game.Debris:AddItem(rock, 6)
+ 
+ local yui = Instance.new("SelectionBox", rock)
+ yui.Adornee = rock
+ 
+ partTweenn2 = game:GetService("TweenService"):Create(yui, TweenInfo.new(1, Enum.EasingStyle.Linear), {
+        Color3 = Color3.new(0, 0, 0),
+        LineThickness = 0.75
+    })
+    partTweenn2:Play()
+ task.wait(1.5)
+rock.Transparency = 1
+rock.Anchored = true
+rock.CanCollide = false
+yui:Destroy()
+
+sound = Instance.new("Sound", rock)
+sound.SoundId = "rbxassetid://8588542238"
+sound.Volume = 2.4
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - rock.Position).magnitude
+        if distance <= 10 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end 
+
+  for i = 1, 3 do
+local shard = rock:Clone()
+shard.Parent = workspace
+shard.Anchored = false
+shard.Transparency = 0
+shard.CanCollide = true
+shard.Size = Vector3.new(1.2, 1.2, 1.2)
+shard.Position = shard.Position + Vector3.new(math.random(-5, 5), 2, math.random(-5, 5))
+shard.Velocity = (rock.Position - shard.Position).Unit * -50
+game.Debris:AddItem(shard, 6)
+  end
+    end)()
+  end
+end)
+
+crater = Instance.new("MeshPart", workspace)
+    crater.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0, 2.25, 0)
+    crater.MeshId = "rbxassetid://6656319394"
+    crater.Size = Vector3.new(3, 3, 3)
+    crater.Color = Color3.new(0.5, 0.5, 0.5)
+    crater.Anchored = true
+    crater.CanCollide = false
+    crater.Material = game.Players.LocalPlayer.Character.Humanoid.FloorMaterial
+    game.Debris:AddItem(crater, 10)
+    
+crater1 = Instance.new("Part", crater)
+crater1.Transparency = 1
+crater1.CanCollide = false
+crater1.Position = crater.Position - Vector3.new(0, 0, 0)
+crater1.Size = Vector3.new(50, 1, 50)
+crater1.Anchored = true
+
+dec1 = Instance.new("Decal", crater1)
+dec1.Texture = "rbxassetid://10228065900"
+dec1.Transparency = 0.1
+dec1.Face = Enum.NormalId.Top
+
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://314970761"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Vector Pressure"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 15 then
+                lastPressTime = currentTime 
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+
+local vector = Instance.new("Part", workspace)
+vector.Anchored = true
+vector.CanCollide = false
+vector.Transparency = 1
+vector.Size = Vector3.zero
+vector.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+game.Debris:AddItem(vector, 10)
+
+local sel = Instance.new("SelectionBox", vector)
+sel.Adornee = vector
+
+sound = Instance.new("Sound", vector)
+sound.SoundId = "rbxassetid://9120426781"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://102483038405455"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(0.3575)
+
+local partTweenn2 = game:GetService("TweenService"):Create(vector, TweenInfo.new(1.5, Enum.EasingStyle.Exponential), {
+        Size = Vector3.new(100, 100, 100)
+    })
+    partTweenn2:Play()
+local partTweenn2 = game:GetService("TweenService"):Create(sel, TweenInfo.new(1.5, Enum.EasingStyle.Exponential), {
+        LineThickness = 1
+    })
+    partTweenn2:Play()
+task.wait(3)
+partTweenn2 = game:GetService("TweenService"):Create(vector, TweenInfo.new(0.05, Enum.EasingStyle.Linear), {
+        Size = Vector3.zero
+    })
+    partTweenn2:Play()
+partTweenn2 = game:GetService("TweenService"):Create(sel, TweenInfo.new(0.05, Enum.EasingStyle.Linear), {
+        LineThickness = 0,
+        Color3 = Color3.new(0, 0, 0)
+    })
+    partTweenn2:Play()
+ task.wait(0.1)
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 85 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+    if humanoid.Health >= 3000 then
+  u = 299
+    else
+  u = math.floor((tonumber(humanoid.Health) / 3.5) * 2)
+    end
+  for i = 1, u do
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+sound = Instance.new("Sound", humanoid.RootPart)
+sound.SoundId = "rbxassetid://96626016"
+sound.Volume = 3
+sound.PlaybackSpeed = 1.1
+sound.Looped = false
+sound:Play()
+ print(u)
+end 
+
+for i = 1, 25 do
+ local ftdt = Instance.new("Part", workspace)
+ ftdt.Transparency = 1
+ ftdt.Size = Vector3.new(4, 4, 4)
+ ftdt.CanCollide = false
+ ftdt.Position = vector.Position + Vector3.new(math.random(-30, 30), 15, math.random(-30, 30))
+ ftdt.Velocity = (vector.Position - ftdt.Position).Unit * -135
+ game.Debris:AddItem(ftdt, 10)
+ 
+ ftdt.Touched:Connect(function(hit)
+  local humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+   if humanoid and humanoid.Parent ~= game.Players.LocalPlayer.Character then
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+ end)
+ 
+ local sert = Instance.new("SelectionBox", ftdt)
+ sert.Adornee = ftdt
+end
+
+spawn(function()
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local originalOffset = humanoid.CameraOffset
+
+local startShakeIntensity = 12
+local shakeSpeed = 0.01
+local shakeDuration = 35
+
+for i = 1, shakeDuration do
+ task.wait()
+ local shakeIntensity = startShakeIntensity * (1 - (i-1)/shakeDuration)
+    local shakeOffset = Vector3.new(
+     math.random(-shakeIntensity, shakeIntensity) / 10,
+        math.random(-shakeIntensity, shakeIntensity) / 10,
+        math.random(-shakeIntensity, shakeIntensity) / 10
+ )
+ local originalOffset = humanoid.CameraOffset
+ local currentTime = 0
+ local duration = shakeSpeed
+ while currentTime < duration do
+     local delta = currentTime/duration
+     humanoid.CameraOffset = originalOffset + shakeOffset * (1 - delta)
+     currentTime = currentTime + task.wait(0.025)
+ end
+ humanoid.CameraOffset = originalOffset
+ end
+end)
+
+sound = Instance.new("Sound", game.Workspace)
+sound.SoundId = "rbxassetid://1837829564"
+sound.Volume = 2.5
+sound.PlaybackSpeed = 0.95
+sound.Looped = false
+sound:Play()
+ task.wait(0.25)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+end
+
+local tool = Instance.new("Tool")
+tool.Name = "Self-driving Vector"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 4 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://85652520438892"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+
+coroutine.wrap(function()
+ for i = 1, 2 do
+   coroutine.wrap(function()
+  if i == 1 then
+a = 5
+    else
+a = -5
+  end
+local yy = Instance.new("Part", workspace)
+yy.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(a, 0, 0)
+yy.CanCollide = false
+yy.Transparency = 1
+yy.Size = Vector3.new(2.4, 2.4, 2.4)
+game.Debris:AddItem(yy, 8)
+
+sound = Instance.new("Sound", yy)
+sound.SoundId = "rbxassetid://8392900771"
+sound.Volume = 2
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local vector = Instance.new("SelectionBox", yy)
+vector.Adornee = yy
+
+local drty = vector.Color3
+
+local bodyVel = Instance.new("BodyVelocity", yy)
+bodyVel.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+bodyVel.Velocity = Vector3.zero
+
+spawn(function()
+ repeat task.wait(0.2)
+local closestDistance = math.huge
+                    local closestHumanoid = nil
+                    local Usuario = game.Players.LocalPlayer
+
+                    for _, v in pairs(workspace:GetDescendants()) do
+                        if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+                            local distance =
+                                (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+                            if distance < closestDistance and distance <= 45 then
+                                closestDistance = distance
+                                closestHumanoid = v
+                            end
+                        end
+                    end
+
+                    if closestHumanoid and closestHumanoid.Health > 0 then
+        bodyVel.Velocity = (closestHumanoid.RootPart.Position - yy.Position).Unit * 20
+        yy.CFrame = CFrame.new(yy.Position, closestHumanoid.RootPart.Position)
+             else
+        bodyVel.Velocity = Vector3.zero
+                    end
+ until yy.Parent == nil or not vector or not bodyVel
+end)
+
+local partTweenn2 = game:GetService("TweenService"):Create(vector, TweenInfo.new(2, Enum.EasingStyle.Linear), {
+        Color3 = Color3.new(1, 0, 0)
+    })
+    partTweenn2:Play()
+ task.wait(4)
+vector:Destroy()
+bodyVel:Destroy()
+yy.Anchored = true
+
+sound = Instance.new("Sound", yy)
+sound.SoundId = "rbxassetid://314970761"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - yy.Position).magnitude
+        if distance <= 23 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+  for i = 1, 4 do
+ local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end 
+
+      for i = 1, 5 do
+  local gu = Instance.new("Part", workspace)
+  gu.Velocity = (yy.Position + gu.Position).Unit * -150
+  gu.Transparency = 1
+  gu.Size = Vector3.new(0.6, 0.6, 0.6)
+  gu.Position = yy.Position + Vector3.new(math.random(-5, 5), 0, math.random(-5, 5))
+  game.Debris:AddItem(gu, 14)
+  
+  local see = Instance.new("SelectionBox", gu)
+  see.Adornee = gu
+  see.Color3 = Color3.new(1, 0, 0)
+  
+  partTweenn2 = game:GetService("TweenService"):Create(see, TweenInfo.new(5, Enum.EasingStyle.Linear), {
+        Color3 = drty
+    })
+    partTweenn2:Play()
+      end
+   end)()
+ end
+end)()
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+tool.Name = "Awakening"
+tool.ToolTip = "Awaken the monster within"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+   tool:Destroy()
+
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://19003795936"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(4.4)
+face.MeshId = "rbxassetid://101069908820730"
+face.TextureID = "rbxassetid://18363999636"
+face.Size = Vector3.new(0.95, 0.95, 0.95)
+FW.C0 = CFrame.new(0.1, -0.15, 0.5) * CFrame.Angles(0, math.rad(0), 0)
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 40 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+
+spawn(function()
+local humanoid = game.Players.LocalPlayer.Character.Humanoid
+local originalOffset = humanoid.CameraOffset
+
+local startShakeIntensity = 12
+local shakeSpeed = 0.01
+local shakeDuration = 30
+
+for i = 1, shakeDuration do
+ task.wait()
+ local shakeIntensity = startShakeIntensity * (1 - (i-1)/shakeDuration)
+    local shakeOffset = Vector3.new(
+     math.random(-shakeIntensity, shakeIntensity) / 10,
+        math.random(-shakeIntensity, shakeIntensity) / 10,
+        math.random(-shakeIntensity, shakeIntensity) / 10
+ )
+ local originalOffset = humanoid.CameraOffset
+ local currentTime = 0
+ local duration = shakeSpeed
+ while currentTime < duration do
+     local delta = currentTime/duration
+     humanoid.CameraOffset = originalOffset + shakeOffset * (1 - delta)
+     currentTime = currentTime + task.wait(0.025)
+ end
+ humanoid.CameraOffset = originalOffset
+end
+  end)
+  
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://8588542238" 
+sound.Volume = 2.5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://5801257793"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+for i = 1, 24 do
+ local de = Instance.new("Part", workspace)
+ de.Transparency = 1
+ de.CanCollide = true
+ de.Size = Vector3.new(4, 4, 4)
+ de.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(math.random(-7, 7), 5, math.random(-7, 7))
+ de.Velocity = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - de.Position).Unit * -120
+ game.Debris:AddItem(de, 15)
+ 
+ local se = Instance.new("SelectionBox", de)
+ se.Adornee = de
+end
+
+for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+  if part:IsA("BasePart") then
+part.Color = Color3.new(0, 0, 0)
+  end
+end
+
+ local glove1 = Instance.new("Part", workspace)
+ glove1.Transparency = 1
+ glove1.Size = Vector3.new(1, 1, 1)
+ glove1.CanCollide = false
+ 
+ local sel = Instance.new("SelectionBox", glove1)
+ sel.Adornee = glove1
+ 
+local touchCd = 0.2
+local lastTT = 0
+ glove1.Touched:Connect(function(hit)
+local currentTime = tick()
+  if (currentTime - lastTT) >= touchCd then
+    lastTT = currentTime
+local humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+   if humanoid and humanoid.Parent ~= game.Players.LocalPlayer.Character then
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end
+ end)
+ 
+ local glove2 = glove1:Clone()
+ glove2.Parent = workspace
+ 
+ local touchCd = 0.2
+local lastTT = 0
+ glove2.Touched:Connect(function(hit)
+local currentTime = tick()
+  if (currentTime - lastTT) >= touchCd then
+    lastTT = currentTime
+local humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+   if humanoid and humanoid.Parent ~= game.Players.LocalPlayer.Character then
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end
+ end)
+ 
+ local G1W = Instance.new("Weld", glove1)
+ G1W.Part0 = glove1
+ G1W.Part1 = game.Players.LocalPlayer.Character["Left Arm"]
+ G1W.C0 = CFrame.new(0, 1, 0)
+ 
+ local G2W = Instance.new("Weld", glove2)
+ G2W.Part0 = glove2
+ G2W.Part1 = game.Players.LocalPlayer.Character["Right Arm"]
+ G2W.C0 = CFrame.new(0, 1, 0)
+ 
+tools()
+ spawn(function()
+local args = {
+    [1] = "ChangeAtribbe",
+    [2] = workspace:WaitForChild(game.Players.LocalPlayer.Name),
+    [3] = "CantHit",
+    [4] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+      while task.wait() do
+ if game.Players.LocalPlayer.Character.Humanoid.WalkSpeed < 30 then
+local args = {
+    [1] = "ChangeAtribbe",
+    [2] = workspace:WaitForChild(game.Players.LocalPlayer.Name),
+    [3] = "SpeedChanger",
+    [4] = 30
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ end
+      end
+ end)
+end)

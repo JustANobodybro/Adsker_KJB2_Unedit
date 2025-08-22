@@ -1,0 +1,313 @@
+local args = {
+    [1] = "LoadChar"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "ChangeValue",
+    [2] = game:GetService("Players").LocalPlayer.PlayerGui.NoResetOnSpawn:WaitForChild("SelctionChar"),
+    [3] = "KJ"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+task.wait(0.5)
+repeat wait() until game.Players.LocalPlayer.Character
+task.wait(0.5)
+
+for _, tool in ipairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+  if tool:IsA("Tool") then
+tool:Destroy()
+  end
+end 
+game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+
+local tool = Instance.new("Tool")
+tool.Name = "Spark"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 5 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://103039546054070"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.3)
+local args = {
+    [1] = "DomainBreakerDash"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local foundHumanoids = {}
+local radius = 6
+local origin = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+local direction = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector
+
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= game.Players.LocalPlayer.Character then
+        local humanoidPosition = v.RootPart.Position
+        local toHumanoid = humanoidPosition - origin
+        local distance = toHumanoid.magnitude
+        local angle = math.acos(toHumanoid.Unit:Dot(direction))
+
+        if distance <= 15 and angle < math.rad(30) then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+ coroutine.wrap(function()
+  for i = 1, 5 do
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+  task.wait(0.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(game.Players.LocalPlayer.Character.HumanoidRootPart.Position, humanoid.RootPart.Position)
+local args = {
+    [1] = "UpperCut",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name),
+    [3] = 0.7166666388511658
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ end)()
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Unknown neurotoxin"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 10 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://87699965560018"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(0.2)
+local args = {
+    [1] = "TOPIMPORTANT_VFXEMITEER",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("Madraa"):WaitForChild("GravitationalPullVfx"):WaitForChild("startup"),
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -7)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 15 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+ coroutine.wrap(function()
+for i = 1, 20 do
+ task.wait(0.5)
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name):WaitForChild("Humanoid"),
+    [3] = 4
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+ end)()
+end 
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Beatdown"
+tool.RequiresHandle = false
+
+local function damage()
+game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 100
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 20 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+  for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end 
+end
+
+local function effect()
+local args = {
+    [1] = "Chain of a thousand MilesGOOOO"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 10 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18983500762"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(1.3)
+local args = {
+    [1] = "Chain of a thousand MilesGOOOO"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ task.wait(0.4)
+for i = 1, 2 do
+ effect()
+ damage()
+task.wait(0.25)
+ end
+  task.wait(0.2)
+for i = 1, 5 do
+  effect()
+  damage()
+ task.wait(0.2)
+end
+ task.wait(1)
+local args = {
+    [1] = "KAMUTOKESLAMMMMM",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position - Vector3.new(0, 100, 0)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 40 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end 
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Crushing jump"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 15 then
+                lastPressTime = currentTime 
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://134839633072627"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity += game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * -75 + Vector3.new(0, 150, 0)
+ task.wait(0.6)
+repeat wait() until game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity.Y <= 0
+game.Players.LocalPlayer.Character.HumanoidRootPart.Velocity += Vector3.new(0, -200, 0)
+
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://17751557797"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(0.3)
+local args = {
+    [1] = "KAMUTOKESLAMMMMM",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 65 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+coroutine.wrap(function()
+  for i = 1, 2 do
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+  
+  local args = {
+    [1] = "Force",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name):WaitForChild("HumanoidRootPart"),
+    [3] = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - humanoid.RootPart.Position).Unit * 75
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ task.wait(0.5)
+ local args = {
+    [1] = "Force",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name):WaitForChild("HumanoidRootPart"),
+    [3] = Vector3.zero
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end)()
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack

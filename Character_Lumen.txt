@@ -1,0 +1,193 @@
+local args = {
+    [1] = "LoadChar"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "ChangeValue",
+    [2] = game:GetService("Players").LocalPlayer.PlayerGui.NoResetOnSpawn:WaitForChild("SelctionChar"),
+    [3] = "The Emperor"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+ task.wait(0.5)
+ repeat wait() until game.Players.LocalPlayer.Character
+ task.wait(0.5)
+ 
+ for _, tool in ipairs(game.Players.LocalPlayer.Backpack:GetDescendants()) do
+   if tool:IsA("Tool") then
+tool:Destroy()
+   end
+ end
+ 
+ game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, true)
+ 
+ for _, part in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+   if part:IsA("BasePart") and part.Transparency ~= 1 then
+for _, side in ipairs(Enum.NormalId:GetEnumItems()) do
+  texture = Instance.new("Texture", part)
+  texture.Texture = "rbxassetid://899454068"
+  texture.Face = side
+end
+  elseif part:IsA("SpecialMesh") then
+part.TextureId = "rbxassetid://899454068"
+  elseif part:IsA("Decal") or part:IsA("Texture") then
+part.Texture = "rbxassetid://899454068"
+   end
+ end
+ 
+ local tool = Instance.new("Tool")
+tool.Name = "Energy Mania"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 5 then
+                lastPressTime = currentTime 
+coroutine.wrap(function()
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://85652520438892"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+ task.wait(0.2)
+local ball = Instance.new("MeshPart", workspace)
+ball.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -5)
+ball.Size = Vector3.new(4, 0, 0)
+ball.MeshId = "http://www.roblox.com/asset/?id=10061232"
+ball.Material = "Neon"
+ball.CanCollide = false
+ball.Color = Color3.new(0, 0, 0.25)
+ball.Anchored = true
+game.Debris:AddItem(ball, 8)
+
+local aura = Instance.new("MeshPart", ball)
+aura.Color = Color3.new(0, 0, 0.4)
+aura.Size = Vector3.new(0.9, 0, 0)
+aura.MeshId = "rbxassetid://5747850601"
+aura.Material = "Neon"
+aura.CanCollide = false
+aura.DoubleSided = true
+
+local joint = Instance.new("Weld", aura)
+joint.Part0 = aura
+joint.Part1 = ball
+joint.C0 = CFrame.new(0, 0, 0)
+
+local bv = Instance.new("BodyVelocity", ball)
+bv.MaxForce = Vector3.new(math.huge, math.huge, math.huge)
+bv.Velocity = Vector3.zero
+
+sound = Instance.new("Sound", ball)
+sound.SoundId = "rbxassetid://2162238854"
+sound.Volume = 2.5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+sound = Instance.new("Sound", ball)
+sound.SoundId = "rbxassetid://4651715539"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = true
+sound:Play()
+
+local light = Instance.new("PointLight", ball)
+light.Range = 12
+light.Brightness = 2.5
+light.Color = Color3.new(0, 0, 0.8)
+  task.wait(0.3)
+local partTweenn2 = game:GetService("TweenService"):Create(ball, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {
+        Size = Vector3.new(4, 4, 4)
+    })
+    partTweenn2:Play()
+local partTweenn2 = game:GetService("TweenService"):Create(aura, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {
+        Size = Vector3.new(0.9, 0.9, 0.9)
+    })
+    partTweenn2:Play()
+     task.wait(0.7)
+  ball.Anchored = false
+  
+spawn(function()
+  repeat task.wait(0.05)
+local closestDistance = math.huge
+local closestHumanoid = nil
+local Usuario = game.Players.LocalPlayer
+
+  for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character and v.Health > 0 then
+      local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance < closestDistance and distance <= 90 then
+             closestDistance = distance
+             closestHumanoid = v
+        end
+     end
+  end
+
+if closestHumanoid and closestHumanoid.Health > 0 then
+   bv.Velocity = (closestHumanoid.RootPart.Position - ball.Position).Unit * 135
+   ball.CFrame = CFrame.new(ball.Position, closestHumanoid.RootPart.Position)
+  else
+   bv.Velocity = Vector3.zero
+end
+  until ball.Parent == nil or bv.Parent ~= ball
+end)
+  
+ ball.Touched:Connect(function(hit)
+local humanoid = hit.Parent:FindFirstChildOfClass("Humanoid")
+   if humanoid and humanoid.Parent ~= game.Players.LocalPlayer.Character and humanoid.Health > 0 then
+ball.CanTouch = false
+ local explosion = Instance.new("MeshPart", workspace)
+ explosion.Color = Color3.new(0, 0, 1)
+ explosion.Size = Vector3.zero
+ explosion.MeshId = "rbxassetid://5747850601"
+ explosion.CanCollide = false
+ explosion.Anchored = true
+ explosion.Material = "Neon"
+ explosion.Position = ball.Position
+ game.Debris:AddItem(explosion, 5)
+ 
+ sound = Instance.new("Sound", explosion)
+ sound.SoundId = "rbxassetid://138210320"
+ sound.Volume = 2
+ sound.PlaybackSpeed = 1
+ sound.Looped = false
+ sound:Play()
+ 
+local partTweenn2 = game:GetService("TweenService"):Create(explosion, TweenInfo.new(0.7, Enum.EasingStyle.Exponential), {
+        Transparency = 1,
+        Size = Vector3.new(7, 7, 7),
+        Color = Color3.new(0, 0, 0)
+    })
+    partTweenn2:Play()
+ 
+ local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - explosion.Position).magnitude
+        if distance <= 30 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "SweepKickKick",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end 
+ball:Destroy()
+   end
+ end)
+end)()
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack

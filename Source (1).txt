@@ -1,0 +1,1652 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+
+local Window = OrionLib:MakeWindow({Name = "Budgie Hub | KJ battlegrounds (ADSKer Version)", HidePremium = true, IntroEnabled = false, SaveConfig = false, ConfigFolder = "OrionTest"})
+
+local Tab = Window:MakeTab({
+	Name = "Control",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+game:GetService("GuiService"):SetGameplayPausedNotificationEnabled(false)
+local api = loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/API/refs/heads/main/Api.lua"))()
+local whitelist = {4636825706, 5199937747, 6066688097}
+
+local Section = Tab:AddSection({
+ Name = "All"
+})
+
+Tab:AddButton({
+ Name = "Kill all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+ for i = 1, 100 do
+local args = {
+    [1] = "KjM1s-1",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 1009,
+    [4] = 100
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Fly all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+ local args = {
+    [1] = "Ravage5",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 6.133333206176758,
+    [4] = Vector3.new(4562, 4005, -3562)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+end
+ end    
+})
+
+Tab:AddButton({
+ Name = "Bring all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+ local args = {
+    [1] = "Ravage1",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 6.133333206176758,
+    [4] = Vector3.new(4600.17236328125, 405.1660461425781, -3600.927978515625)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Explode all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+for i = 1, 5 do
+ local args = {
+    [1] = "CollateralRuinHit",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+ end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Curse all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "SuasnoArmHitTTT",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = "2107921"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Add aura to everyone",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "ClairvoyanceAddAura",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Tornado all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "GunabiTwisterTORNADO",
+    [2] =  player.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 1)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Domains of Madness",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "MalevolentShrineStart",
+    [2] = player.Character.HumanoidRootPart.CFrame,
+    [3] = "866686"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Invisible all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+local args = {
+    [1] = "SetTranspancyyyyyy",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end        
+   end    
+})
+
+Tab:AddButton({
+ Name = "Visible all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+local args = {
+    [1] = "SetTranspancyyyyyy",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Mega punish all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "Force",
+    [2] = workspace:WaitForChild(player.Name):WaitForChild("HumanoidRootPart"):WaitForChild("HighQualtyPushWorld"),
+    [3] = Vector3.new(math.huge, math.huge, math.huge)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end       
+   end    
+})
+
+Tab:AddButton({
+ Name = "Clutter of camera all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+coroutine.wrap(function()
+repeat wait(0.1)
+local args = {
+    [1] = "FIREOTHERCLIENTTTTT",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = "PlayFunCtionsTableEFunction",
+    [4] = "SkullCrusherImpactFrames"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+until player.Character.Humanoid.Health <= 0
+end)()
+  end
+end        
+   end    
+})
+
+Tab:AddButton({
+ Name = "Curse of death all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+coroutine.wrap(function()
+repeat task.wait()
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = workspace:WaitForChild(player.Name):WaitForChild("Humanoid"),
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+until player.Character.Humanoid.Health <= 0
+end)()
+  end
+end        
+   end    
+})
+
+Tab:AddButton({
+ Name = "Stun all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "BoulderCrushStunCharrr",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Unstun all",
+ Callback = function()
+for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "BoulderCrushUNNNStunCharrr",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+local Section = Tab:AddSection({
+ Name = "Control Other"
+})
+
+Tab:AddTextbox({
+ Name = "Kill Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+     if player and not table.find(whitelist, player.UserId) then
+for i = 1, 100 do
+local args = {
+    [1] = "KjM1s-1",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 1009,
+    [4] = 100
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+     end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Kidnap Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+  local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "ShadowStab",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = "ShadowStabEnemy"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Explode Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 5 do
+ local args = {
+    [1] = "CollateralRuinHit",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Eat Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 20 do
+local args = {
+    [1] = "SpawnDivineDogTotality",
+    [2] = player.Character.HumanoidRootPart.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Add Aura",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+    local player = api:GetPlayerByLowerName(Value)
+     if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "ClairvoyanceAddAura",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+     end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Remove Aura",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "ClairvoyanceRemoveAura",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+
+Tab:AddTextbox({
+ Name = "Unstun Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 1 do
+ local args = {
+    [1] = "Ravage5",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 6.133333206176758,
+    [4] = Vector3.new(4562.46337890625, 405.1660461425781, -3562.637451171875)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Freeze Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(
+ "MaxminBlueLoop",
+  player.Character.HumanoidRootPart.Position
+)
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Curse The Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "SuasnoArmHitTTT",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = "2107921"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Flock of Birds",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 20 do
+local args = {
+    [1] = "SummonNueEEEEEE",
+    [2] = player.Character.HumanoidRootPart.CFrame * CFrame.new(10 - i, 0, 5)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+}) 
+
+Tab:AddTextbox({
+ Name = "Scratch Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 9 do
+local args = {
+    [1] = "Shadow Stlaker Start",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Beat the Player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+   local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+for i = 1, 5 do
+local args = {
+    [1] = "TempestComboWELDDD",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Invisible player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+ local player = api:GetPlayerByLowerName(Value)
+  if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "SetTranspancyyyyyy",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+ end    
+})
+
+Tab:AddTextbox({
+ Name = "Visible player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "SetTranspancyyyyyy",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Mega punish player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "Force",
+    [2] = workspace:WaitForChild(player.Name):WaitForChild("HumanoidRootPart"):WaitForChild("HighQualtyPushWorld"),
+    [3] = Vector3.new(math.huge, math.huge, math.huge)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Clutter of player camera", 
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+repeat wait(0.1)
+local args = {
+    [1] = "FIREOTHERCLIENTTTTT",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = "PlayFunCtionsTableEFunction",
+    [4] = "SkullCrusherImpactFrames"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+until player.Character.Humanoid.Health <= 0
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Curse by death player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+ repeat task.wait()
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = workspace:WaitForChild(player.Name):WaitForChild("Humanoid"),
+    [3] = math.huge
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+until player.Character.Humanoid:GetState() == "Dead"
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Stun player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "BoulderCrushStunCharrr",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Unstun player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "BoulderCrushUNNNStunCharrr",
+    [2] = workspace:WaitForChild(player.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Pacify player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player then
+for _, obj in ipairs(player.Backpack:GetDescendants()) do
+  if obj:IsA("Tool") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = obj
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Remove killstreak player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player then
+for _, obj in ipairs(player.Character:GetDescendants()) do
+  if obj:IsA("Highlight") or obj:IsA("BillboardGui") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = obj
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Heal player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and player.Character.Humanoid then
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = player.Character.Humanoid,
+    [3] = -200
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Godmode player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and player.Character.Humanoid then
+coroutine.wrap(function()
+ repeat task.wait(0.05)
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = player.Character.Humanoid,
+    [3] = -250
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ until player.Character.Humanoid.Health <= 0
+end)()
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Delete player model",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = player.Character
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+Tab:AddTextbox({
+ Name = "Kick player",
+ Default = "",
+ TextDisappear = true,
+ Callback = function(Value)
+local player = api:GetPlayerByLowerName(Value)
+    if player and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = player
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+    end
+ end   
+})
+
+local Section = Tab:AddSection({
+ Name = "Apocalypse"
+})
+
+Tab:AddToggle({
+ Name = "Loop kill all",
+ Default = false,
+ Callback = function(Value)
+togle1 = Value
+   while togle1 and wait(0.1) do
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and player.Character.Humanoid.Health > 0 and not table.find(whitelist, player.UserId) then
+ for i = 1, 100 do
+local args = {
+    [1] = "KjM1s-1",
+    [2] = workspace:WaitForChild(player.Name),
+    [3] = 1009,
+    [4] = 100
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+end
+   end
+ end    
+})
+
+Tab:AddToggle({
+ Name = "KJ Apocalypse",
+ Default = false,
+ Callback = function(Value)
+togle2 = Value
+   while togle2 and task.wait() do
+local args = {
+    [1] = "KJAwakiining",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-200, 200), math.random(0, 50), math.random(-200, 200)),
+    [3] = Vector3.new(4378.8857421875, 400.7573547363281, -3388.360595703125)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "KJAwakiiningEnd"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+ end    
+})
+
+Tab:AddButton({
+ Name = "Clear Map",
+ Callback = function()
+local args = {
+    [1] = "MainModuleFUNCTIONN",
+    [2] = "DestrouctionSystem",
+    [3] = Vector3.new(1e9, 1e9, 1e9),
+    [4] = CFrame.new(4425.98046875, 405.1660461425781, -3547.8779296875)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end    
+})
+
+Tab:AddToggle({
+ Name = "Fire in the hole!",
+ Default = false,
+ Callback = function(value)
+tog0 = value
+while tog0 and task.wait() do
+ local args = {
+    [1] = "KAMUTOKESLAMMMMM",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(math.random(-500, 500), 0, math.random(-500, 500))
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddDropdown({
+	Name = "Destructive functions (VIP)",
+	Default = "1",
+	Options = {"Destroy all models", "Destroy all players", "Break game", "Destroy all parts", "Destroy all mesh", "Break leaderstats"},
+	Callback = function(Value)
+  if table.find(whitelist, game.Players.LocalPlayer.UserId) then
+ if Value == "Destroy all models" then
+for _, player in ipairs(game.Players:GetPlayers()) do
+ if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = player.Character
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ end
+end
+elseif Value == "Destroy all players" then
+ for _, player in ipairs(game.Players:GetPlayers()) do
+  if player ~= game.Players.LocalPlayer and not table.find(whitelist, player.UserId) then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = player
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+ end
+elseif Value == "Break game" then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR")
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+elseif Value == "Destroy all parts" then
+for _, p in ipairs(workspace:GetDescendants()) do
+  if p:IsA("BasePart") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = p
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+end
+elseif Value == "Destroy all mesh" then
+for _, p in ipairs(game:GetDescendants()) do
+  if p:IsA("SpecialMesh") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = p
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+end
+elseif Value == "Break leaderstats" then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = game.Players.LocalPlayer.leaderstats
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ end
+else
+OrionLib:MakeNotification({
+	Name = "Budgie Hub",
+	Content = "The function is not available",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+return
+   end
+	end    
+})
+
+local Section = Tab:AddSection({
+ Name = "Abilities"
+})
+
+Tab:AddButton({
+ Name = "The Prophetic Light",
+ Callback = function()
+for i = 1, 10 do
+local args = {
+    [1] = "WORLDCUT__SHOT",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Elephant Madness",
+ Callback = function()
+        local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://18546216447"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+for i = 1, 40 do
+local args = {
+    [1] = "Max Elephanttttt",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-100, 100), 0, math.random(-100, 100))
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Bloody Death Line",
+ Callback = function()
+task.delay(0.5, function()
+ local args = {
+    [1] = "FireClienTTTTTT",
+    [3] = "ADDDINGGLIGHTINGEFFECTSSSSS",
+    [4] = Vector3.new(4607.66845703125, 405.1660461425781, -3592.306884765625),
+    [5] = 40,
+    [6] = true,
+    [7] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("LightingEffectSSSS"):WaitForChild("CLEAVEDANCEEEE"),
+    [8] = {
+        [1] = 0.23
+    },
+    [9] = {
+        ["TintColor"] = Color3.new(1, 1, 1),
+        ["Contrast"] = 0
+    }
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "TOPIMPORTANT_VFXEMITEER",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("Sukuna"):WaitForChild("CleaveDance"):WaitForChild("hit"),
+    [3] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, 5),
+    [4] = 15,
+    [5] = nil
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end)
+
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://98406664904534"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+
+sound = Instance.new("Sound", game.Workspace)
+sound.SoundId = "rbxassetid://181004943"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+   wait(0.5)
+sound = Instance.new("Sound", workspace)
+sound.SoundId = "rbxassetid://1837829564"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+sound = Instance.new("Sound", workspace)
+sound.SoundId = "rbxassetid://96626016"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+for i = 0, 12 do
+local args = {
+    [1] = "Telekinetic RuptureStarttt",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -((1 * i) * 15)),
+    [3] = Vector3.new(0, 49.816001892089844, 0)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Shot by the Power of Thought",
+ Callback = function()
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://102483038405455"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+   wait(1)
+player = game.Players.LocalPlayer
+
+local args = {
+    [1] = "TOPIMPORTANT_VFXEMITEER",
+    [2] = game:GetService("ReplicatedStorage"):WaitForChild("VFX"):WaitForChild("Sukuna"):WaitForChild("RelamDismantle"):WaitForChild("Dash"),
+    [3] = player.Character.HumanoidRootPart.CFrame
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local foundHumanoids = {}
+local radius = 20
+local origin = player.Character.HumanoidRootPart.Position
+local direction = player.Character.HumanoidRootPart.CFrame.LookVector
+
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= player.Character then
+        local humanoidPosition = v.RootPart.Position
+        local toHumanoid = humanoidPosition - origin
+        local distance = toHumanoid.magnitude
+        local angle = math.acos(toHumanoid.Unit:Dot(direction))
+
+        if distance <= 50 and angle < math.rad(30) then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+  for i = 1, 15 do
+local args = {
+    [1] = "KjM1s-4",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name),
+    [3] = 6499999761581421
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Options",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddToggle({
+ Name = "Cant be ragdoll",
+ Default = false,
+ Callback = function(Value)
+jg = Value
+while jg and task.wait() do
+ local args = {
+    [1] = "ChangeValue",
+    [2] = game:GetService("Players").LocalPlayer.Character.IsRagdoll,
+    [3] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+ end    
+})
+
+Tab:AddToggle({
+ Name = "Cant be stunned",
+ Default = false,
+ Callback = function(Value)
+yty = Value
+while yty and task.wait() do
+local args = {
+    [1] = "ChangeAtribbe",
+    [2] = workspace:WaitForChild(game.Players.LocalPlayer.Name),
+    [3] = "Stun",
+    [4] = false
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+
+local args = {
+    [1] = "BoulderCrushUNNNStunCharrr",
+    [2] = workspace:WaitForChild(game.Players.LocalPlayer.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+ end    
+})
+
+Tab:AddButton({
+ Name = "Load Character",
+ Callback = function()
+local args = {
+    [1] = "LoadChar"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end    
+})
+
+Tab:AddButton({
+ Name = "Bugmode",
+ Callback = function()
+local rand = game.Players:GetPlayers()[math.random(1, #game.Players:GetPlayers())]
+if rand ~= game.Players.LocalPlayer then
+ local args = {
+    [1] = "ShadowStab",
+    [2] = workspace:WaitForChild(rand.Name),
+    [3] = "ShadowStabEnemy"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+ wait(1)
+  repeat wait(0.1)
+local args = {
+    [1] = "SweepKickHit",
+    [2] = workspace:WaitForChild(rand.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  until rand.Character.Humanoid.Health <= 0
+end
+   end    
+})
+
+Tab:AddToggle({
+ Name = "Hide kills",
+ Default = false,
+ Callback = function(Value)
+local ohString1 = "ChangeValue"
+local ohInstance2 = game:GetService("Players").LocalPlayer.PlayerData.Settings.HideKills
+local ohString3 = Value
+
+game:GetService("ReplicatedStorage").AllRemoteEvents.CLientToServerR:FireServer(ohString1, ohInstance2, ohString3)
+ end    
+})
+
+Tab:AddToggle({
+ Name = "Hide killstreak",
+ Default = false,
+ Callback = function(Value)
+local ohString1 = "ChangeValue"
+local ohInstance2 = game:GetService("Players").LocalPlayer.PlayerData.Settings.HideKillStreak
+local ohString3 = Value
+
+game:GetService("ReplicatedStorage").AllRemoteEvents.CLientToServerR:FireServer(ohString1, ohInstance2, ohString3)
+ end    
+})
+
+Tab:AddToggle({
+ Name = "Godmode",
+ Default = false,
+ Callback = function(Value)
+  ytygd = Value
+while ytygd and task.wait() do
+local args = {
+    [1] = "ChangeAtribbe",
+    [2] = workspace:WaitForChild(game.Players.LocalPlayer.Name),
+    [3] = "CantHit",
+    [4] = Value
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+ end    
+})
+
+Tab:AddToggle({
+ Name = "View backpack",
+ Default = false,
+ Callback = function(Value)
+  tgg = Value
+while tgg and task.wait(0.2) do
+game:GetService("StarterGui"):SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, tgg)
+end
+ end    
+})
+
+Tab:AddButton({
+ Name = "Destroy backpack (no cooldown bug)",
+ Callback = function()
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = game.Players.LocalPlayer.Backpack
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end    
+})
+
+Tab:AddButton({
+ Name = "Remove killstreak",
+ Callback = function()
+for _, obj in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+  if obj:IsA("Highlight") or obj:IsA("BillboardGui") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = obj
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+   end    
+})
+
+Tab:AddToggle({
+ Name = "Loop Remove Killstreak",
+ Default = false,
+ Callback = function(Value)
+uiui = Value
+while uiui and task.wait(0.1) do
+for _, obj in ipairs(game.Players.LocalPlayer.Character:GetDescendants()) do
+  if obj:IsA("Highlight") or obj:IsA("BillboardGui") then
+local args = {
+    [1] = "DestroySomeThinggg",
+    [2] = obj
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+    end
+ end    
+})
+
+Tab:AddToggle({
+ Name = "Loop heal self", 
+ Default = false,
+ Callback = function(Value)
+iio = Value
+  while iio and task.wait() do
+   if game.Players.LocalPlayer.Character.Humanoid.Health ~= game.Players.LocalPlayer.Character.Humanoid.MaxHealth then
+local args = {
+    [1] = "DamgeHumanoidDDDDD",
+    [2] = game.Players.LocalPlayer.Character.Humanoid,
+    [3] = -1000
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+   end
+  end
+ end    
+})
+
+local Tab = Window:MakeTab({
+	Name = "Extra",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+Tab:AddButton({
+ Name = "Meteor rain",
+ Callback = function()
+        for i = 1, 10 do
+local args = {
+    [1] = "MASSIVEMETORSUMMON",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(math.random(-800, 800), 0, math.random(-800, 800))
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "My world",
+ Callback = function()
+sound = Instance.new("Sound", game.Workspace)
+sound.SoundId = "rbxassetid://9067394222"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+ task.wait(1.5)
+for i = 1, 50 do
+ local args = {
+    [1] = "ShadowGardenopennnnn",
+    [2] = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(math.random(-500, 500), 0, math.random(-500, 500))
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+   end    
+})
+
+Tab:AddButton({
+ Name = "Phenomar",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Phenomar"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Thermophenix",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/KJB_Character_Thermophoenix/refs/heads/main/Source"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Tool Brazil Samba",
+ Callback = function()
+local tool = Instance.new("Tool", game.Players.LocalPlayer.Backpack)
+tool.Name = "Brazil Samba"
+tool.ToolTip = "Boulder"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 2 then
+                lastPressTime = currentTime 
+coroutine.wrap(function()
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://76715054152443"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.3)
+local ball = Instance.new("MeshPart", workspace)
+ball.MeshId = "rbxassetid://1042484771"
+ball.TextureID = "rbxassetid://1042482997"
+ball.Size = Vector3.new(5, 5, 5)
+ball.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame * CFrame.new(0, 0, -7)
+ball.Velocity = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame.LookVector * 300 + Vector3.new(0, 35, 0)
+game.Debris:AddItem(ball, 30)
+
+ball.Touched:Connect(function(hit)
+ local human = hit.Parent:FindFirstChildOfClass("Humanoid")
+   if human and human.Parent ~= game.Players.LocalPlayer.Character and human.Health > 0 then
+for i = 1, 100 do
+local args = {
+    [1] = "StoicBombHitt",
+    [2] = workspace:WaitForChild(human.Parent.Name)
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+
+sound = Instance.new("Sound", ball)
+sound.SoundId = "rbxassetid://1086799256"
+sound.Volume = 7
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+sound = Instance.new("Sound", human)
+sound.SoundId = "rbxassetid://138210320"
+sound.Volume = 5
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - ball.Position).magnitude
+        if distance <= 400 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+ ball.Velocity = (ball.Position - humanoid.RootPart.Position).Unit * 250
+end 
+   end
+end)
+
+sound = Instance.new("Sound", game.Workspace)
+sound.SoundId = "rbxassetid://28445431"
+sound.Volume = 1
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+end)()
+            end
+end)
+   end    
+})
+
+Tab:AddButton({
+ Name = "Character: Chronos",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Chronos"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Character: Tenebris (Beta Version)",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Tenebris"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Character: Cain",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Cain"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Character: Lumen (Alpha Version)",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Lumen"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Character: Astaroth",
+ Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/ADSK_KJB/refs/heads/main/Character_Astaroth"))()
+   end    
+})
+
+Tab:AddButton({
+ Name = "Jogo stuff",
+ Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Burn"
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 12 then
+                lastPressTime = currentTime 
+for i = 1, 3 do
+local args = {
+    [1] = "GreatestFireFIREE"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "District Fire" 
+tool.RequiresHandle = false
+
+local lastPressTime = 0
+tool.Activated:Connect(function()
+  local currentTime = tick()
+            if currentTime - lastPressTime >= 5 then
+                lastPressTime = currentTime 
+local mouseh = game.Players.LocalPlayer:GetMouse().Hit
+
+local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 40 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+for _, humanoid in pairs(foundHumanoids) do
+  for i = 1, 4 do
+   local args = {
+    [1] = "GreatFireFire",
+    [2] = humanoid.RootPart.CFrame * CFrame.new(0, 0, -10) * CFrame.Angles(math.rad(-90), 0, math.rad(80 * i))
+   }
+
+   game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end
+end
+            end
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+   end    
+})
+
+Tab:AddButton({
+ Name = "Dev tools",
+ Callback = function()
+local tool = Instance.new("Tool")
+tool.Name = "Onekick tool"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+  local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://76715054152443"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.3)
+  
+  local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 25 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+  if #foundHumanoids >= 1 then
+sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://3183222154"
+sound.Volume = 3
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+  end
+
+  for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "RuthlessRoarHittt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name),
+    [3] = 53475753578654310,
+    [4] = 750,
+    [5] = math.huge,
+    [6] = math.huge
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end 
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Oneshot tool"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://75696593697191"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  local mouseh = game.Players.LocalPlayer:GetMouse().Hit
+  
+  local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - mouseh.Position).magnitude
+        if distance <= 5 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+  for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "RuthlessRoarHittt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name),
+    [3] = 53475753578654310,
+    [4] = 200,
+    [5] = math.huge,
+    [6] = math.huge
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end 
+   task.wait(0.15)
+ sound = Instance.new("Sound", game.Players.LocalPlayer.Character.HumanoidRootPart)
+sound.SoundId = "rbxassetid://573314737"
+sound.Volume = 2
+sound.PlaybackSpeed = 1
+sound.Looped = false
+sound:Play()
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+
+local tool = Instance.new("Tool")
+tool.Name = "Knockback tool"
+tool.RequiresHandle = false
+
+tool.Activated:Connect(function()
+  local Anim = Instance.new("Animation")
+Anim.AnimationId = "rbxassetid://17842945529"
+local k = game:GetService("Players").LocalPlayer.Character.Humanoid:LoadAnimation(Anim)
+k:Play()
+k:AdjustSpeed(1)
+  task.wait(0.25)
+  local foundHumanoids = {}
+Usuario = game.Players.LocalPlayer
+for _, v in pairs(workspace:GetDescendants()) do
+    if v:IsA("Humanoid") and v.RootPart and v.RootPart.Parent ~= Usuario.Character then
+        local distance = (v.RootPart.Position - Usuario.Character.HumanoidRootPart.Position).magnitude
+        if distance <= 10 then
+            table.insert(foundHumanoids, v)
+        end
+    end
+end
+
+  for _, humanoid in pairs(foundHumanoids) do
+local args = {
+    [1] = "RuthlessRoarHittt",
+    [2] = workspace:WaitForChild(humanoid.Parent.Name),
+    [3] = 53475753578654310,
+    [4] = 800,
+    [5] = 0.3,
+    [6] = 0
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("AllRemoteEvents"):WaitForChild("CLientToServerR"):FireServer(unpack(args))
+  end 
+end)
+
+tool.Parent = game.Players.LocalPlayer.Backpack
+   end    
+})
+
+local blacklist = {4568929932,7675789737,3540992706,7625013645}
+
+if table.find(blacklist, game.Players.LocalPlayer.CharacterAppearanceId) then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+end
